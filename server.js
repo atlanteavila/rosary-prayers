@@ -3,9 +3,13 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var env = require('node-env-file');
 
 // Mongodb
-mongoose.connect('mongodb://localhost/rosary-test');
+var mongodbUri = process.env.DATABASE_URL
+
+
+mongoose.connect(mongodbUri);
 
 // Express
 var app = express();
